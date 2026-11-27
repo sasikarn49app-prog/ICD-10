@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ICD-10 Grand Reference Atlas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-main: #0b1324;
+      --bg-glow: #162647;
+      --paper: #ffffff;
+      --paper-sub: #f8fafc;
+      --ink: #0f172a;
+      --ink-sub: #475569;
+      --navy: #0f294a;
+      --navy-soft: #eff6ff;
+      --gold: #9a5b13;
+      --gold-bright: #c88a2b;
+      --gold-light: #fef3c7;
+      --rule: #e2e8f0;
+      --rule-dark: #0f294a;
+      --code-bg: #0f294a;
+      --code-fg: #ffffff;
+      --sub-bg: #334155;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at top center, rgba(200, 138, 43, 0.14), transparent 45%),
+        linear-gradient(180deg, var(--bg-main) 0%, var(--bg-glow) 280px, #09101f 100%);
+      min-height: 100vh;
+      color: var(--ink);
+      font-family: 'IBM Plex Sans Thai', -apple-system, sans-serif;
+      line-height: 1.55;
+    }
+
+    .app-wrap {
+      max-width: 1040px;
+      margin: 24px auto 56px;
+      padding: 0 14px;
+    }
+
+    .atlas-frame {
+      background: var(--paper);
+      border: 1px solid #cbd5e1;
+      outline: 3px double rgba(154, 91, 19, 0.45);
+      outline-offset: -7px;
+      box-shadow: 0 24px 54px rgba(0, 0, 0, 0.42);
+      padding: 28px 24px;
+    }
+
+    .atlas-header {
+      border-bottom: 2px solid var(--rule-dark);
+      padding-bottom: 16px;
+      margin-bottom: 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .atlas-kicker {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .atlas-title {
+      font-family: 'Cinzel', 'IBM Plex Sans Thai', serif;
+      font-size: 1.65rem;
+      margin: 0;
+      color: var(--navy);
+      letter-spacing: 0.04em;
+      line-height: 1.25;
+    }
+
+    .atlas-sub {
+      margin: 5px 0 0;
+      font-size: 0.9rem;
+      color: var(--ink-sub);
+    }
+
+    .status-pill {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--navy);
+      background: var(--paper-sub);
+      border: 1px solid #cbd5e1;
+      border-left: 3px solid var(--gold-bright);
+      padding: 6px 12px;
+      border-radius: 3px;
+    }
+
+    .mode-switch-bar {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 14px;
+      background: #eef2f6;
+      border: 1px solid #cbd5e1;
+      padding: 5px;
+      border-radius: 6px;
+    }
+
+    .btn-mode {
+      flex: 1;
+      padding: 10px 14px;
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--ink-sub);
+      cursor: pointer;
+      border-radius: 4px;
+      transition: all 0.18s ease;
+    }
+
+    .btn-mode:hover {
+      color: var(--navy);
+      background: rgba(255, 255, 255, 0.55);
+    }
+
+    .btn-mode.active {
+      background: var(--navy);
+      color: #ffffff;
+      border-color: var(--navy);
+      box-shadow: 0 3px 10px rgba(15, 41, 74, 0.22);
+    }
+
+    .control-panel {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr auto;
+      gap: 10px;
+      background: var(--paper-sub);
+      border: 1px solid var(--rule);
+      border-top: 2px solid var(--gold-bright);
+      padding: 12px;
+      margin-bottom: 18px;
+      align-items: center;
+    }
+
+    @media (max-width: 720px) {
+      .control-panel { grid-template-columns: 1fr; }
+      .atlas-frame { padding: 20px 14px; }
+    }
+
+    input[type="search"], select {
+      width: 100%;
+      padding: 9px 12px;
+      font-family: inherit;
+      font-size: 0.9rem;
+      color: var(--ink);
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
+    }
+
+    input[type="search"]:focus, select:focus {
+      outline: none;
+      border-color: var(--navy);
+      box-shadow: 0 0 0 2px rgba(15, 41, 74, 0.12);
+    }
+
+    .btn-reset {
+      padding: 9px 14px;
+      font-family: inherit;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--navy);
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .btn-reset:hover {
+      background: var(--gold-light);
+      border-color: var(--gold-bright);
+    }
+
+    .row-item {
+      display: grid;
+      grid-template-columns: 112px 1fr;
+      gap: 14px;
+      padding: 13px 4px;
+      border-bottom: 1px solid var(--rule);
+      align-items: start;
+    }
+
+    .row-item.is-header {
+      background: linear-gradient(90deg, rgba(15, 41, 74, 0.04) 0%, rgba(200, 138, 43, 0.06) 100%);
+      border-top: 1px solid #cbd5e1;
+      border-bottom: 1.5px solid var(--navy);
+      margin-top: 6px;
+      padding: 14px 8px;
+    }
+
+    @media (max-width: 560px) {
+      .row-item { grid-template-columns: 88px 1fr; gap: 10px; }
+    }
+
+    .code-btn {
+      display: inline-block;
+      min-width: 76px;
+      background: var(--code-bg);
+      color: var(--code-fg);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.84rem;
+      font-weight: 700;
+      padding: 4px 8px;
+      border: 1px solid rgba(200, 138, 43, 0.45);
+      border-radius: 3px;
+      cursor: pointer;
+      text-align: center;
+      transition: transform 0.1s ease, background 0.15s ease;
+    }
+
+    .code-btn:hover {
+      background: #1a3d6b;
+      transform: translateY(-1px);
+    }
+
+    .code-btn.sub {
+      background: var(--sub-bg);
+      border-color: transparent;
+    }
+
+    .code-btn.sub:hover {
+      background: #1e293b;
+    }
+
+    .term-title {
+      font-weight: 700;
+      font-size: 0.96rem;
+      color: var(--ink);
+    }
+
+    .row-item.is-header .term-title {
+      font-size: 1.02rem;
+      color: var(--navy);
+    }
+
+    .term-sub {
+      font-size: 0.88rem;
+      color: #334155;
+      margin-top: 3px;
+    }
+
+    .note-box {
+      font-size: 0.83rem;
+      color: #334155;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-left: 3px solid var(--gold-bright);
+      padding: 6px 10px;
+      margin-top: 6px;
+      border-radius: 0 3px 3px 0;
+    }
+
+    .error-box {
+      font-size: 0.88rem;
+      color: #7f1d1d;
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      border-left: 4px solid #dc2626;
+      padding: 12px 14px;
+      border-radius: 4px;
+      margin-top: 10px;
+    }
+
+    .flag-tag {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      background: var(--gold-light);
+      color: var(--gold);
+      border: 1px solid rgba(200, 138, 43, 0.45);
+      font-weight: 700;
+      padding: 1px 7px;
+      border-radius: 3px;
+      margin-top: 5px;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 22px;
+      right: 22px;
+      background: var(--navy);
+      color: #ffffff;
+      border: 1px solid var(--gold-bright);
+      padding: 9px 16px;
+      font-size: 0.86rem;
+      font-weight: 600;
+      border-radius: 4px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+      display: none;
+      z-index: 99;
+    }
+  </style>
+</head>
+<body>
+  <div class="app-wrap">
+    <div class="atlas-frame">
+      <header class="atlas-header">
+        <div>
+          <div class="atlas-kicker">WHO ICD-10 · Grand Reference Atlas</div>
+          <h1 class="atlas-title">ICD-10 Clinical Reference Atlas</h1>
+          <p class="atlas-sub">ดัชนี Volume 3 และคู่มือ Tabular List (A00–Z99) · คลิกที่รหัสเพื่อคัดลอกทันที</p>
+        </div>
+        <div id="statusText" class="status-pill">กำลังโหลด...</div>
+      </header>
+
+      <div class="mode-switch-bar" role="tablist" aria-label="เลือกโหมดการแสดงผล">
+        <button id="btnVol3" type="button" class="btn-mode" onclick="switchMode('VOL3')">
+          Volume 3 Index (ค้นหาจากคลัง JSON)
+        </button>
+        <button id="btnTabular" type="button" class="btn-mode active" onclick="switchMode('TABULAR')">
+          Tabular List (คู่มือตามเล่ม)
+        </button>
+      </div>
+
+      <div class="control-panel">
+        <input
+          type="search"
+          id="searchInput"
+          placeholder="พิมพ์คำค้นหา ชื่อโรค หรือรหัส เช่น A04.7, A18.0, D46, Leptospirosis..."
+          oninput="filterData()"
+        />
+        <select id="chapterFilter" onchange="filterData()">
+          <option value="ALL">ทุกบท (All Chapters)</option>
+          <option value="Ch1">Chapter I (A00–B99)</option>
+          <option value="Ch2">Chapter II (C00–D48)</option>
+          <option value="Ch3">Chapter III (D50–D89)</option>
+          <option value="Ch4">Chapter IV (E00–E90)</option>
+          <option value="Ch5">Chapter V (F00–F99)</option>
+          <option value="Ch6">Chapter VI (G00–G99)</option>
+          <option value="Ch7">Chapter VII (H00–H59)</option>
+          <option value="Ch8">Chapter VIII (H60–H95)</option>
+          <option value="Ch9">Chapter IX (I00–I99)</option>
+          <option value="Ch10">Chapter X (J00–J99)</option>
+          <option value="Ch11">Chapter XI (K00–K93)</option>
+          <option value="Ch12">Chapter XII (L00–L99)</option>
+          <option value="Ch13">Chapter XIII (M00–M99)</option>
+          <option value="Ch14">Chapter XIV (N00–N99)</option>
+          <option value="Ch15">Chapter XV (O00–O99)</option>
+          <option value="Ch16">Chapter XVI (P00–P96)</option>
+          <option value="Ch17">Chapter XVII (Q00–Q99)</option>
+          <option value="Ch18">Chapter XVIII (R00–R99)</option>
+          <option value="Ch19">Chapter XIX (S00–T98)</option>
+          <option value="Ch20">Chapter XX (V01–Y98)</option>
+          <option value="Ch21">Chapter XXI (Z00–Z99)</option>
+          <option value="Ch22">Chapter XXII (U00–U99)</option>
+        </select>
+        <button type="button" class="btn-reset" onclick="resetFilters()">ล้างค่า</button>
+      </div>
+
+      <div id="results"></div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast">คัดลอกรหัสแล้ว</div>
+
+  <script>
+    window.addEventListener('error', function (event) {
+      const resultsEl = document.getElementById('results');
+      const statusEl = document.getElementById('statusText');
+      if (statusEl) statusEl.textContent = 'เกิดข้อผิดพลาด';
+      if (resultsEl) {
+        resultsEl.innerHTML = `<div class="error-box"><strong>พบข้อผิดพลาดของสคริปต์:</strong> ${escapeHtml(event.message || 'Unknown error')}</div>`;
+      }
+    });
+
+    let currentMode = 'TABULAR';
+    let vol3Data = [];
+    let vol3Loaded = false;
+
+    const sampleTabular = [
+      { code: "A03", title: "Shigellosis", category: "Ch1", isHeader: true },
+      { code: "A03.0", title: "Shigellosis due to Shigella dysenteriae", sub: "Group A shigellosis [Shiga-Kruse dysentery]", category: "Ch1" },
+      { code: "A03.1", title: "Shigellosis due to Shigella flexneri", sub: "Group B shigellosis", category: "Ch1" },
+      { code: "A03.2", title: "Shigellosis due to Shigella boydii", sub: "Group C shigellosis", category: "Ch1" },
+      { code: "A03.3", title: "Shigellosis due to Shigella sonnei", sub: "Group D shigellosis", category: "Ch1" },
+      { code: "A03.8", title: "Other shigellosis", category: "Ch1" },
+      { code: "A03.9", title: "Shigellosis, unspecified", sub: "Bacillary dysentery NOS", category: "Ch1" },
+
+      { code: "A04", title: "Other bacterial intestinal infections", note: "Excl.: foodborne intoxications elsewhere classified; tuberculous enteritis (A18.3)", category: "Ch1", isHeader: true },
+      { code: "A04.0", title: "Enteropathogenic Escherichia coli infection", category: "Ch1" },
+      { code: "A04.1", title: "Enterotoxigenic Escherichia coli infection", category: "Ch1" },
+      { code: "A04.2", title: "Enteroinvasive Escherichia coli infection", category: "Ch1" },
+      { code: "A04.3", title: "Enterohaemorrhagic Escherichia coli infection", category: "Ch1" },
+      { code: "A04.4", title: "Other intestinal Escherichia coli infections", sub: "Escherichia coli enteritis NOS", category: "Ch1" },
+      { code: "A04.5", title: "Campylobacter enteritis", category: "Ch1" },
+      { code: "A04.6", title: "Enteritis due to Yersinia enterocolitica", note: "Excl.: extraintestinal yersiniosis (A28.2)", category: "Ch1" },
+      { code: "A04.7", title: "Enterocolitis due to Clostridium difficile", sub: "Foodborne intoxication by Clostridium difficile; Pseudomembranous colitis", category: "Ch1" },
+      { code: "A04.8", title: "Other specified bacterial intestinal infections", category: "Ch1" },
+      { code: "A04.9", title: "Bacterial intestinal infection, unspecified", sub: "Bacterial enteritis NOS", category: "Ch1" },
+
+      { code: "A05", title: "Other bacterial foodborne intoxications, not elsewhere classified", note: "Excl.: Clostridium difficile foodborne intoxication and infection (A04.7); Escherichia coli infection (A04.0–A04.4); listeriosis (A32.-); Salmonella foodborne intoxication and infection (A02.-); toxic effect of noxious foodstuffs (T61–T62)", category: "Ch1", isHeader: true },
+      { code: "A05.0", title: "Foodborne staphylococcal intoxication", category: "Ch1" },
+      { code: "A05.1", title: "Botulism", sub: "Classical foodborne intoxication due to Clostridium botulinum", category: "Ch1" },
+      { code: "A05.2", title: "Foodborne Clostridium perfringens [Clostridium welchii] intoxication", sub: "Enteritis necroticans; Pig-bel", category: "Ch1" },
+      { code: "A05.3", title: "Foodborne Vibrio parahaemolyticus intoxication", category: "Ch1" },
+      { code: "A05.4", title: "Foodborne Bacillus cereus intoxication", category: "Ch1" },
+      { code: "A05.8", title: "Other specified bacterial foodborne intoxications", category: "Ch1" },
+      { code: "A05.9", title: "Bacterial foodborne intoxication, unspecified", category: "Ch1" },
+
+      { code: "A06", title: "Amoebiasis", note: "Incl.: infection due to Entamoeba histolytica | Excl.: other protozoal intestinal diseases (A07.-)", category: "Ch1", isHeader: true },
+      { code: "A06.0", title: "Acute amoebic dysentery", sub: "Acute amoebiasis; Intestinal amoebiasis NOS", category: "Ch1" },
+      { code: "A06.1", title: "Chronic intestinal amoebiasis", category: "Ch1" },
+      { code: "A06.2", title: "Amoebic nondysenteric colitis", category: "Ch1" },
+      { code: "A06.3", title: "Amoeboma of intestine", sub: "Amoeboma NOS", category: "Ch1" },
+      { code: "A06.4†", title: "Amoebic liver abscess (K77.0*)", sub: "Hepatic amoebiasis", tag: "Dagger / Asterisk †/*", category: "Ch1" },
+      { code: "A06.5†", title: "Amoebic lung abscess (J99.8*)", sub: "Amoebic abscess of lung (and liver)", tag: "Dagger / Asterisk †/*", category: "Ch1" },
+      { code: "A06.6†", title: "Amoebic brain abscess (G07*)", sub: "Amoebic abscess of brain (and liver)(and lung)", tag: "Dagger / Asterisk †/*", category: "Ch1" },
+      { code: "A06.7", title: "Cutaneous amoebiasis", category: "Ch1" },
+      { code: "A06.8", title: "Amoebic infection of other sites", sub: "Amoebic: appendicitis; balanitis† (N51.2*)", category: "Ch1" },
+      { code: "A06.9", title: "Amoebiasis, unspecified", category: "Ch1" },
+
+      { code: "A07", title: "Other protozoal intestinal diseases", category: "Ch1", isHeader: true },
+      { code: "A07.0", title: "Balantidiasis", sub: "Balantidial dysentery", category: "Ch1" },
+      { code: "A07.1", title: "Giardiasis [lambliasis]", category: "Ch1" },
+      { code: "A07.2", title: "Cryptosporidiosis", category: "Ch1" },
+      { code: "A07.3", title: "Isosporiasis", sub: "Infection due to Isospora belli and Isospora hominis; Intestinal coccidiosis; Isosporosis", category: "Ch1" },
+      { code: "A07.8", title: "Other specified protozoal intestinal diseases", sub: "Intestinal trichomoniasis; Sarcocystosis; Sarcosporidiosis", category: "Ch1" },
+      { code: "A07.9", title: "Protozoal intestinal disease, unspecified", sub: "Flagellate diarrhoea; Protozoal: colitis, diarrhoea, dysentery", category: "Ch1" },
+
+      { code: "A08", title: "Viral and other specified intestinal infections", note: "Excl.: influenza with involvement of gastrointestinal tract (J09, J10.8, J11.8)", category: "Ch1", isHeader: true },
+      { code: "A08.0", title: "Rotaviral enteritis", category: "Ch1" },
+      { code: "A08.1", title: "Acute gastroenteropathy due to Norwalk agent", sub: "Small round structured virus enteritis", category: "Ch1" },
+      { code: "A08.2", title: "Adenoviral enteritis", category: "Ch1" },
+      { code: "A08.3", title: "Other viral enteritis", category: "Ch1" },
+      { code: "A08.4", title: "Viral intestinal infection, unspecified", sub: "Viral: enteritis NOS, gastroenteritis NOS, gastroenteropathy NOS", category: "Ch1" },
+      { code: "A08.5", title: "Other specified intestinal infections", category: "Ch1" },
+
+      { code: "A09", title: "Other gastroenteritis and colitis of infectious and unspecified origin", note: "Excl.: due to bacterial, protozoal, viral and other specified infectious agents (A00–A08); noninfective (see noninfectious) diarrhoea (K52.9); neonatal (P78.3)", category: "Ch1", isHeader: true },
+      { code: "A09.0", title: "Other and unspecified gastroenteritis and colitis of infectious origin", sub: "Catarrh, enteric or intestinal; Diarrhoea (acute bloody, acute haemorrhagic, acute watery, dysenteric, epidemic); Infectious or septic: colitis, enteritis, gastroenteritis (NOS, haemorrhagic); Infectious diarrhoea NOS", category: "Ch1" },
+      { code: "A09.9", title: "Gastroenteritis and colitis of unspecified origin", note: "Incl.: Neonatal diarrhoea NOS", category: "Ch1" },
+
+      { code: "A15", title: "Respiratory tuberculosis, bacteriologically and histologically confirmed", note: "Tuberculosis (A15–A19) — Incl.: infections due to Mycobacterium tuberculosis and Mycobacterium bovis | Excl.: congenital tuberculosis (P37.0); HIV disease resulting in tuberculosis (B20.0); pneumoconiosis associated with tuberculosis (J65); sequelae of tuberculosis (B90.-); silicotuberculosis (J65)", category: "Ch1", isHeader: true },
+      { code: "A15.0", title: "Tuberculosis of lung, confirmed by sputum microscopy with or without culture", sub: "Tuberculous: bronchiectasis, fibrosis of lung, pneumonia, pneumothorax (confirmed by sputum microscopy with or without culture)", category: "Ch1" },
+      { code: "A15.1", title: "Tuberculosis of lung, confirmed by culture only", sub: "Conditions listed in A15.0, confirmed by culture only", category: "Ch1" },
+      { code: "A15.2", title: "Tuberculosis of lung, confirmed histologically", sub: "Conditions listed in A15.0, confirmed histologically", category: "Ch1" },
+      { code: "A15.3", title: "Tuberculosis of lung, confirmed by unspecified means", sub: "Conditions listed in A15.0, confirmed but unspecified whether bacteriologically or histologically", category: "Ch1" },
+      { code: "A15.4", title: "Tuberculosis of intrathoracic lymph nodes, confirmed bacteriologically and histologically", sub: "Tuberculosis of lymph nodes: hilar, mediastinal, tracheobronchial | Excl.: specified as primary (A15.7)", category: "Ch1" },
+      { code: "A15.5", title: "Tuberculosis of larynx, trachea and bronchus, confirmed bacteriologically and histologically", sub: "Tuberculosis of: bronchus, glottis, larynx, trachea", category: "Ch1" },
+      { code: "A15.6", title: "Tuberculous pleurisy, confirmed bacteriologically and histologically", sub: "Tuberculosis of pleura; Tuberculous empyema | Excl.: in primary respiratory tuberculosis (A15.7)", category: "Ch1" },
+      { code: "A15.7", title: "Primary respiratory tuberculosis, confirmed bacteriologically and histologically", category: "Ch1" },
+      { code: "A15.8", title: "Other respiratory tuberculosis, confirmed bacteriologically and histologically", sub: "Mediastinal tuberculosis; Nasopharyngeal tuberculosis; Tuberculosis of: nose, sinus [any nasal]", category: "Ch1" },
+      { code: "A15.9", title: "Respiratory tuberculosis unspecified, confirmed bacteriologically and histologically", category: "Ch1" },
+
+      { code: "A16", title: "Respiratory tuberculosis, not confirmed bacteriologically or histologically", category: "Ch1", isHeader: true },
+      { code: "A16.0", title: "Tuberculosis of lung, bacteriologically and histologically negative", sub: "Tuberculous: bronchiectasis, fibrosis of lung, pneumonia, pneumothorax (bacteriologically and histologically)", category: "Ch1" },
+      { code: "A16.1", title: "Tuberculosis of lung, bacteriologically and histological examination not done", sub: "Conditions listed in A16.0, bacteriological and histological examination not done", category: "Ch1" },
+      { code: "A16.2", title: "Tuberculosis of lung, without mention of bacteriological or histological confirmation", sub: "Tuberculosis of lung NOS; Tuberculous: bronchiectasis, fibrosis of lung, pneumonia, pneumothorax (NOS)", category: "Ch1" },
+      { code: "A16.3", title: "Tuberculosis of intrathoracic lymph nodes, without mention of bacteriological or histological confirmation", sub: "Tuberculosis of lymph nodes: hilar, intrathoracic, mediastinal, tracheobronchial (without mention of bacteriological or histological confirmation)", note: "Excl.: when specified as primary (A16.7)", category: "Ch1" },
+      { code: "A16.4", title: "Tuberculosis of larynx, trachea and bronchus, without mention of bacteriological or histological confirmation", sub: "Tuberculosis of: bronchus, glottis, larynx, trachea (without mention of bacteriological or histological confirmation)", category: "Ch1" },
+      { code: "A16.5", title: "Tuberculous pleurisy, without mention of bacteriological or histological confirmation", sub: "Tuberculosis of pleura; Tuberculous: empyema, pleurisy (without mention of bacteriological or histological confirmation)", note: "Excl.: in primary respiratory tuberculosis (A16.7)", category: "Ch1" },
+      { code: "A16.7", title: "Primary respiratory tuberculosis without mention of bacteriological or histological confirmation", sub: "Primary: respiratory tuberculosis NOS, tuberculous complex", category: "Ch1" },
+      { code: "A16.8", title: "Other respiratory tuberculosis, without mention of bacteriological or histological confirmation", sub: "Mediastinal tuberculosis; Nasopharyngeal tuberculosis; Tuberculosis of: nose, sinus [any nasal] (without mention of bacteriological or histological confirmation)", category: "Ch1" },
+      { code: "A16.9", title: "Respiratory tuberculosis unspecified, without mention of bacteriological or histological confirmation", sub: "Respiratory tuberculosis NOS; Tuberculosis NOS", category: "Ch1" },
+
+      { code: "A17†", title: "Tuberculosis of nervous system", tag: "Dagger / Asterisk †/*", category: "Ch1", isHeader: true },
+      { code: "A17.0†", title: "Tuberculous meningitis (G01*)", sub: "Tuberculosis of meninges (cerebral)(spinal); Tuberculous leptomeningitis", tag: "Dagger / Asterisk †/*", category: "Ch1" },
+      { code: "A17.1†", title: "Meningeal tuberculoma (G07*)", sub: "Tuberculoma of meninges", tag: "Dagger / Asterisk †/*", category: "Ch1" },
+      { code: "A17.8†", title: "Other tuberculosis of nervous system", sub: "Tuberculoma / Tuberculosis of: brain (G07*), spinal cord (G07*); Tuberculous: abscess of brain (G07*), meningoencephalitis (G05.0*), myelitis (G05.0*), polyneuropathy (G63.0*)", tag: "Dagger / Asterisk †/*", category: "Ch1" },
+      { code: "A17.9†", title: "Tuberculosis of nervous system, unspecified (G99.8*)", tag: "Dagger / Asterisk †/*", category: "Ch1" },
+
+      { code: "A18", title: "Tuberculosis of other organs", category: "Ch1", isHeader: true },
+      { code: "A18.0†", title: "Tuberculosis of bones and joints", sub: "Tuberculosis of: hip (M01.1*), knee (M01.1*), vertebral column (M49.0*); Tuberculous: arthritis (M01.1*), mastoiditis (H75.0*), necrosis of bone (M90.0*), osteitis (M90.0*), osteomyelitis (M90.0*), synovitis (M68.0*), tenosynovitis (M68.0*)", tag: "Dagger / Asterisk †/*", category: "Ch1" },
+      { code: "A18.1", title: "Tuberculosis of genitourinary system", sub: "Tuberculosis of: bladder† (N33.0*), cervix† (N74.0*), kidney† (N29.1*), male genital organs† (N51.-*), ureter† (N29.1*); Tuberculous female pelvic inflammatory disease† (N74.1*)", tag: "Dagger / Asterisk †/*", category: "Ch1" },
+      { code: "A18.2", title: "Tuberculous peripheral lymphadenopathy", sub: "Tuberculous adenitis", note: "Excl.: tuberculosis of lymph nodes: intrathoracic (A15.4, A16.3), mesenteric and retroperitoneal (A18.3); tuberculous tracheobronchial adenopathy (A15.4, A16.3)", category: "Ch1" },
+      { code: "A18.3", title: "Tuberculosis of intestines, peritoneum and mesenteric glands", sub: "Tuberculosis (of): anus and rectum† (K93.0*), intestine (large)(small)† (K93.0*), retroperitoneal (lymph nodes); Tuberculous: ascites, enteritis† (K93.0*), peritonitis† (K67.3*)", tag: "Dagger / Asterisk †/*", category: "Ch1" },
+      { code: "A18.4", title: "Tuberculosis of skin and subcutaneous tissue", sub: "Erythema induratum, tuberculous; Lupus: exedens, vulgaris (NOS, of eyelid† H03.1*); Scrofuloderma", note: "Excl.: lupus erythematosus (L93.-), systemic (M32.-)", category: "Ch1" },
+      { code: "A18.5", title: "Tuberculosis of eye", sub: "Tuberculous: chorioretinitis† (H32.0*), episcleritis† (H19.0*), interstitial keratitis† (H19.2*), iridocyclitis† (H22.0*), keratoconjunctivitis (interstitial)(phlyctenular)† (H19.2*)", note: "Excl.: lupus vulgaris of eyelid (A18.4)", tag: "Dagger / Asterisk †/*", category: "Ch1" },
+      { code: "A18.6", title: "Tuberculosis of ear", sub: "Tuberculous otitis media† (H67.0*)", note: "Excl.: tuberculous mastoiditis (A18.0†)", tag: "Dagger / Asterisk †/*", category: "Ch1" },
+      { code: "A18.7†", title: "Tuberculosis of adrenal glands (E35.1*)", sub: "Addison disease, tuberculous", tag: "Dagger / Asterisk †/*", category: "Ch1" },
+      { code: "A18.8", title: "Tuberculosis of other specified organs", sub: "Tuberculosis of: endocardium† (I39.8*), myocardium† (I41.0*), oesophagus† (K23.0*), pericardium† (I32.0*), thyroid gland† (E35.0*); Tuberculous cerebral arteritis† (I68.1*)", tag: "Dagger / Asterisk †/*", category: "Ch1" },
+
+      { code: "A19", title: "Miliary tuberculosis", note: "Incl.: tuberculosis: disseminated, generalized; tuberculous polyserositis", category: "Ch1", isHeader: true },
+      { code: "A19.0", title: "Acute miliary tuberculosis of a single specified site", category: "Ch1" },
+      { code: "A19.1", title: "Acute miliary tuberculosis of multiple sites", category: "Ch1" },
+      { code: "A19.2", title: "Acute miliary tuberculosis, unspecified", category: "Ch1" },
+      { code: "A19.8", title: "Other miliary tuberculosis", category: "Ch1" },
+      { code: "A19.9", title: "Miliary tuberculosis, unspecified", category: "Ch1" },
+
+      { code: "A27", title: "Leptospirosis", category: "Ch1", isHeader: true },
+      { code: "A27.0", title: "Leptospirosis icterohaemorrhagica", sub: "Leptospirosis due to Leptospira interrogans serovar icterohaemorrhagiae", category: "Ch1" },
+      { code: "A27.8", title: "Other forms of leptospirosis", category: "Ch1" },
+      { code: "A27.9", title: "Leptospirosis, unspecified", category: "Ch1" },
+
+      { code: "A97", title: "Dengue", sub: "Mosquito-borne viral disease with clinical presentations ranging from self-limiting febrile illness to severe disease with plasma leakage, haemorrhage, or shock", category: "Ch1", isHeader: true },
+      { code: "A97.0", title: "Dengue without warning signs", sub: "Incl.: dengue haemorrhagic fever grades 1 and 2; dengue haemorrhagic fever without warning signs", category: "Ch1" },
+      { code: "A97.1", title: "Dengue with warning signs", sub: "Warning signs: abdominal pain or tenderness, mucosal bleeding, lethargy/restlessness, rapid platelet drop with haematocrit rise, persistent vomiting, fluid accumulation, hepatomegaly > 2 cm", category: "Ch1" },
+      { code: "A97.2", title: "Severe dengue", sub: "Severe plasma leakage (DSS / respiratory distress), severe bleeding, severe organ involvement", category: "Ch1" },
+      { code: "A97.9", title: "Dengue, unspecified", sub: "Incl.: Dengue fever [DF] NOS", category: "Ch1" },
+
+      { code: "D46", title: "Myelodysplastic syndromes", note: "Excl.: drug-induced aplastic anaemia (D61.1)", category: "Ch2", isHeader: true },
+      { code: "D46.0", title: "Refractory anaemia without ring sideroblasts, so stated", category: "Ch2" },
+      { code: "D46.1", title: "Refractory anaemia with ring sideroblasts", category: "Ch2" },
+      { code: "D46.2", title: "Refractory anaemia with excess of blasts [RAEB]", sub: "RAEB-1; RAEB-2", category: "Ch2" },
+      { code: "D46.4", title: "Refractory anaemia, unspecified", category: "Ch2" },
+      { code: "D46.9", title: "Myelodysplastic syndrome, unspecified", sub: "Myelodysplasia NOS", category: "Ch2" },
+
+      { code: "D50", title: "Iron deficiency anaemia", sub: "Anaemia: asiderotic; hypochromic", category: "Ch3", isHeader: true },
+      { code: "D50.9", title: "Iron deficiency anaemia, unspecified", category: "Ch3" },
+
+      { code: "E10", title: "Type 1 diabetes mellitus", sub: "Diabetes (mellitus): brittle; juvenile-onset; ketosis-prone", category: "Ch4", isHeader: true },
+      { code: "E11", title: "Type 2 diabetes mellitus", sub: "Non-insulin-dependent diabetes mellitus", category: "Ch4", isHeader: true },
+
+      { code: "F32", title: "Depressive episode", sub: "Single episodes of: depressive reaction; psychogenic depression; reactive depression", category: "Ch5", isHeader: true },
+      { code: "F32.9", title: "Depressive episode, unspecified", sub: "Depression NOS; Depressive disorder NOS", category: "Ch5" }
+    ];
+
+    function escapeHtml(str) {
+      return String(str || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    function showToast(msg) {
+      const el = document.getElementById('toast');
+      if (!el) return;
+      el.textContent = msg;
+      el.style.display = 'block';
+      clearTimeout(window.__toastTimer);
+      window.__toastTimer = setTimeout(() => {
+        el.style.display = 'none';
+      }, 1700);
+    }
+
+    function copyCode(code) {
+      const clean = String(code || '').replace(/[†*]/g, '').trim();
+      if (!clean) return;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(clean).catch(() => {});
+      }
+      showToast(`คัดลอกรหัส ${clean} แล้ว`);
+    }
+
+    function switchMode(mode) {
+      currentMode = mode;
+      document.getElementById('btnVol3').classList.toggle('active', mode === 'VOL3');
+      document.getElementById('btnTabular').classList.toggle('active', mode === 'TABULAR');
+
+      if (mode === 'VOL3' && !vol3Loaded) {
+        loadVol3Data();
+      } else {
+        filterData();
+      }
+    }
+
+    async function loadVol3Data() {
+      const statusEl = document.getElementById('statusText');
+      statusEl.textContent = 'กำลังโหลดคลัง Vol. 3...';
+
+      const candidateUrls = [
+        './icd10_vol3_index.json',
+        './data/icd10_vol3_index.json',
+        './vol3_index.json'
+      ];
+
+      for (const url of candidateUrls) {
+        try {
+          const res = await fetch(url, { cache: 'no-store' });
+          if (res.ok) {
+            const json = await res.json();
+            vol3Data = Array.isArray(json) ? json : (json.items || json.data || []);
+            vol3Loaded = true;
+            statusEl.textContent = `Vol. 3 พร้อมใช้งาน (${vol3Data.length.toLocaleString()} รายการ)`;
+            filterData();
+            return;
+          }
+        } catch (e) {
+          // ลอง path ถัดไป
+        }
+      }
+
+      vol3Data = sampleTabular.map((item) => ({
+        code: item.code,
+        term: item.title,
+        subterm: item.sub || '',
+        chapter: item.category
+      }));
+      vol3Loaded = true;
+      statusEl.textContent = `Vol. 3 โหมดสำรอง (${vol3Data.length} รายการ)`;
+      filterData();
+    }
+
+    function resetFilters() {
+      document.getElementById('searchInput').value = '';
+      document.getElementById('chapterFilter').value = 'ALL';
+      filterData();
+    }
+
+    function filterData() {
+      try {
+        const q = (document.getElementById('searchInput').value || '').trim().toLowerCase();
+        const ch = document.getElementById('chapterFilter').value;
+        const resultsEl = document.getElementById('results');
+        const statusEl = document.getElementById('statusText');
+
+        if (currentMode === 'TABULAR') {
+          const filtered = sampleTabular.filter((item) => {
+            const matchCh = (ch === 'ALL') || (item.category === ch);
+            if (!matchCh) return false;
+            if (!q) return true;
+            const hay = `${item.code} ${item.title} ${item.sub || ''} ${item.note || ''}`.toLowerCase();
+            return hay.includes(q);
+          });
+
+          statusEl.textContent = `Tabular: แสดง ${filtered.length} รายการ`;
+
+          if (!filtered.length) {
+            resultsEl.innerHTML = `<div class="note-box">ไม่พบรายการที่ตรงกับคำค้นหา "${escapeHtml(q)}"</div>`;
+            return;
+          }
+
+          resultsEl.innerHTML = filtered.map((item) => {
+            const btnClass = item.isHeader ? 'code-btn' : 'code-btn sub';
+            return `
+              <div class="row-item ${item.isHeader ? 'is-header' : ''}">
+                <div>
+                  <button type="button" class="${btnClass}" onclick="copyCode('${escapeHtml(item.code)}')" title="คลิกเพื่อคัดลอกรหัส">
+                    ${escapeHtml(item.code)}
+                  </button>
+                </div>
+                <div>
+                  <div class="term-title">${escapeHtml(item.title)}</div>
+                  ${item.sub ? `<div class="term-sub">${escapeHtml(item.sub)}</div>` : ''}
+                  ${item.note ? `<div class="note-box">${escapeHtml(item.note)}</div>` : ''}
+                  ${item.tag ? `<div class="flag-tag">${escapeHtml(item.tag)}</div>` : ''}
+                </div>
+              </div>
+            `;
+          }).join('');
+        } else {
+          const filtered = vol3Data.filter((item) => {
+            const itemCh = item.chapter || item.category || 'Ch1';
+            const matchCh = (ch === 'ALL') || (itemCh === ch);
+            if (!matchCh) return false;
+            if (!q) return true;
+            const hay = `${item.code || ''} ${item.term || item.title || ''} ${item.subterm || item.sub || ''}`.toLowerCase();
+            return hay.includes(q);
+          });
+
+          const capped = filtered.slice(0, 250);
+          statusEl.textContent = `Vol. 3: พบ ${filtered.length.toLocaleString()} รายการ (แสดง ${capped.length})`;
+
+          if (!capped.length) {
+            resultsEl.innerHTML = `<div class="note-box">ไม่พบดัชนี Vol. 3 ที่ตรงกับ "${escapeHtml(q)}"</div>`;
+            return;
+          }
+
+          resultsEl.innerHTML = capped.map((item) => {
+            const code = item.code || '';
+            const title = item.term || item.title || '';
+            const sub = item.subterm || item.sub || '';
+            return `
+              <div class="row-item">
+                <div>
+                  <button type="button" class="code-btn sub" onclick="copyCode('${escapeHtml(code)}')" title="คลิกเพื่อคัดลอกรหัส">
+                    ${escapeHtml(code || '—')}
+                  </button>
+                </div>
+                <div>
+                  <div class="term-title">${escapeHtml(title)}</div>
+                  ${sub ? `<div class="term-sub">${escapeHtml(sub)}</div>` : ''}
+                </div>
+              </div>
+            `;
+          }).join('');
+        }
+      } catch (err) {
+        const resultsEl = document.getElementById('results');
+        if (resultsEl) {
+          resultsEl.innerHTML = `<div class="error-box">เกิดข้อผิดพลาดระหว่างการแสดงผล: ${escapeHtml(err.message)}</div>`;
+        }
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', filterData);
+  </script>
+</body>
+</html>
