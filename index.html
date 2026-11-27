@@ -692,7 +692,11 @@
       }
     }
 
-    document.addEventListener('DOMContentLoaded', filterData);
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', filterData);
+    } else {
+      filterData();
+    }
   </script>
 </body>
 </html>
