@@ -1,0 +1,175 @@
+{
+  "dataset": "ICD-10-TM Standard Coding Guidelines 2017",
+  "chunk_id": "14",
+  "code_range": "N00-N99",
+  "chapter_title_en": "Genitourinary System",
+  "chapter_title_th": "โรคระบบทางเดินปัสสาวะและอวัยวะสืบพันธุ์",
+  "source_pdf": "Guideline 2017.pdf",
+  "pdf_page_range": [
+    291,
+    316
+  ],
+  "printed_page_range": [
+    285,
+    310
+  ],
+  "extraction_note": "PDF is scanned image pages. This JSON indexes the source pages; text OCR has not yet been extracted/verified. Use source PDF pages to confirm.",
+  "pages": [
+    {
+      "pdf_page": 291,
+      "printed_page": 285,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 292,
+      "printed_page": 286,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 293,
+      "printed_page": 287,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 294,
+      "printed_page": 288,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 295,
+      "printed_page": 289,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 296,
+      "printed_page": 290,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 297,
+      "printed_page": 291,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 298,
+      "printed_page": 292,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 299,
+      "printed_page": 293,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 300,
+      "printed_page": 294,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 301,
+      "printed_page": 295,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 302,
+      "printed_page": 296,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 303,
+      "printed_page": 297,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 304,
+      "printed_page": 298,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 305,
+      "printed_page": 299,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 306,
+      "printed_page": 300,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 307,
+      "printed_page": 301,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 308,
+      "printed_page": 302,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 309,
+      "printed_page": 303,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 310,
+      "printed_page": 304,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 311,
+      "printed_page": 305,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 312,
+      "printed_page": 306,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 313,
+      "printed_page": 307,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 314,
+      "printed_page": 308,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 315,
+      "printed_page": 309,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 316,
+      "printed_page": 310,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    }
+  ]
+}

@@ -1,0 +1,211 @@
+{
+  "dataset": "ICD-10-TM Standard Coding Guidelines 2017",
+  "chunk_id": "21",
+  "code_range": "Z00-Z99",
+  "chapter_title_en": "Factors Influencing Health Status and Contact with Health Services",
+  "chapter_title_th": "ปัจจัยที่มีผลต่อสถานะสุขภาพและการรับบริการ",
+  "source_pdf": "Guideline 2017.pdf",
+  "pdf_page_range": [
+    416,
+    447
+  ],
+  "printed_page_range": [
+    410,
+    441
+  ],
+  "extraction_note": "PDF is scanned image pages. This JSON indexes the source pages; text OCR has not yet been extracted/verified. Use source PDF pages to confirm.",
+  "pages": [
+    {
+      "pdf_page": 416,
+      "printed_page": 410,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 417,
+      "printed_page": 411,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 418,
+      "printed_page": 412,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 419,
+      "printed_page": 413,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 420,
+      "printed_page": 414,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 421,
+      "printed_page": 415,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 422,
+      "printed_page": 416,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 423,
+      "printed_page": 417,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 424,
+      "printed_page": 418,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 425,
+      "printed_page": 419,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 426,
+      "printed_page": 420,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 427,
+      "printed_page": 421,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 428,
+      "printed_page": 422,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 429,
+      "printed_page": 423,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 430,
+      "printed_page": 424,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 431,
+      "printed_page": 425,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 432,
+      "printed_page": 426,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 433,
+      "printed_page": 427,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 434,
+      "printed_page": 428,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 435,
+      "printed_page": 429,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 436,
+      "printed_page": 430,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 437,
+      "printed_page": 431,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 438,
+      "printed_page": 432,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 439,
+      "printed_page": 433,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 440,
+      "printed_page": 434,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 441,
+      "printed_page": 435,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 442,
+      "printed_page": 436,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 443,
+      "printed_page": 437,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 444,
+      "printed_page": 438,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 445,
+      "printed_page": 439,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 446,
+      "printed_page": 440,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 447,
+      "printed_page": 441,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    }
+  ]
+}

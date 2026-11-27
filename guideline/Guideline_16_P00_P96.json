@@ -1,0 +1,67 @@
+{
+  "dataset": "ICD-10-TM Standard Coding Guidelines 2017",
+  "chunk_id": "16",
+  "code_range": "P00-P96",
+  "chapter_title_en": "Perinatal Period",
+  "chapter_title_th": "ภาวะที่เกิดในระยะปริกำเนิด",
+  "source_pdf": "Guideline 2017.pdf",
+  "pdf_page_range": [
+    339,
+    346
+  ],
+  "printed_page_range": [
+    333,
+    340
+  ],
+  "extraction_note": "PDF is scanned image pages. This JSON indexes the source pages; text OCR has not yet been extracted/verified. Use source PDF pages to confirm.",
+  "pages": [
+    {
+      "pdf_page": 339,
+      "printed_page": 333,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 340,
+      "printed_page": 334,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 341,
+      "printed_page": 335,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 342,
+      "printed_page": 336,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 343,
+      "printed_page": 337,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 344,
+      "printed_page": 338,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 345,
+      "printed_page": 339,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 346,
+      "printed_page": 340,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    }
+  ]
+}

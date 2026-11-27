@@ -1,0 +1,193 @@
+{
+  "dataset": "ICD-10-TM Standard Coding Guidelines 2017",
+  "chunk_id": "05",
+  "code_range": "F00-F99",
+  "chapter_title_en": "Mental and Behavioural Disorders",
+  "chapter_title_th": "โรคทางจิตและพฤติกรรม",
+  "source_pdf": "Guideline 2017.pdf",
+  "pdf_page_range": [
+    132,
+    160
+  ],
+  "printed_page_range": [
+    126,
+    154
+  ],
+  "extraction_note": "PDF is scanned image pages. This JSON indexes the source pages; text OCR has not yet been extracted/verified. Use source PDF pages to confirm.",
+  "pages": [
+    {
+      "pdf_page": 132,
+      "printed_page": 126,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 133,
+      "printed_page": 127,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 134,
+      "printed_page": 128,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 135,
+      "printed_page": 129,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 136,
+      "printed_page": 130,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 137,
+      "printed_page": 131,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 138,
+      "printed_page": 132,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 139,
+      "printed_page": 133,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 140,
+      "printed_page": 134,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 141,
+      "printed_page": 135,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 142,
+      "printed_page": 136,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 143,
+      "printed_page": 137,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 144,
+      "printed_page": 138,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 145,
+      "printed_page": 139,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 146,
+      "printed_page": 140,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 147,
+      "printed_page": 141,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 148,
+      "printed_page": 142,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 149,
+      "printed_page": 143,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 150,
+      "printed_page": 144,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 151,
+      "printed_page": 145,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 152,
+      "printed_page": 146,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 153,
+      "printed_page": 147,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 154,
+      "printed_page": 148,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 155,
+      "printed_page": 149,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 156,
+      "printed_page": 150,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 157,
+      "printed_page": 151,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 158,
+      "printed_page": 152,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 159,
+      "printed_page": 153,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 160,
+      "printed_page": 154,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    }
+  ]
+}

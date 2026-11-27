@@ -1,0 +1,61 @@
+{
+  "dataset": "ICD-10-TM Standard Coding Guidelines 2017",
+  "chunk_id": "08",
+  "code_range": "H60-H95",
+  "chapter_title_en": "Ear and Mastoid Process",
+  "chapter_title_th": "โรคหูและปุ่มกกหู",
+  "source_pdf": "Guideline 2017.pdf",
+  "pdf_page_range": [
+    181,
+    187
+  ],
+  "printed_page_range": [
+    175,
+    181
+  ],
+  "extraction_note": "PDF is scanned image pages. This JSON indexes the source pages; text OCR has not yet been extracted/verified. Use source PDF pages to confirm.",
+  "pages": [
+    {
+      "pdf_page": 181,
+      "printed_page": 175,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 182,
+      "printed_page": 176,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 183,
+      "printed_page": 177,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 184,
+      "printed_page": 178,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 185,
+      "printed_page": 179,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 186,
+      "printed_page": 180,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 187,
+      "printed_page": 181,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    }
+  ]
+}

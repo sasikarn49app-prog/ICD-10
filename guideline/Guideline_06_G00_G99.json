@@ -1,0 +1,55 @@
+{
+  "dataset": "ICD-10-TM Standard Coding Guidelines 2017",
+  "chunk_id": "06",
+  "code_range": "G00-G99",
+  "chapter_title_en": "Nervous System",
+  "chapter_title_th": "โรคระบบประสาท",
+  "source_pdf": "Guideline 2017.pdf",
+  "pdf_page_range": [
+    161,
+    166
+  ],
+  "printed_page_range": [
+    155,
+    160
+  ],
+  "extraction_note": "PDF is scanned image pages. This JSON indexes the source pages; text OCR has not yet been extracted/verified. Use source PDF pages to confirm.",
+  "pages": [
+    {
+      "pdf_page": 161,
+      "printed_page": 155,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 162,
+      "printed_page": 156,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 163,
+      "printed_page": 157,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 164,
+      "printed_page": 158,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 165,
+      "printed_page": 159,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 166,
+      "printed_page": 160,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    }
+  ]
+}
