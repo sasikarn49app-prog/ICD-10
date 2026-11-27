@@ -1,0 +1,301 @@
+{
+  "dataset": "ICD-10-TM Standard Coding Guidelines 2017",
+  "chunk_id": "01",
+  "code_range": "A00-B99",
+  "chapter_title_en": "Certain Infectious and Parasitic Diseases",
+  "chapter_title_th": "โรคติดเชื้อและปรสิต",
+  "source_pdf": "Guideline 2017.pdf",
+  "pdf_page_range": [
+    19,
+    65
+  ],
+  "printed_page_range": [
+    13,
+    59
+  ],
+  "extraction_note": "PDF is scanned image pages. This JSON indexes the source pages; text OCR has not yet been extracted/verified. Use source PDF pages to confirm.",
+  "pages": [
+    {
+      "pdf_page": 19,
+      "printed_page": 13,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 20,
+      "printed_page": 14,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 21,
+      "printed_page": 15,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 22,
+      "printed_page": 16,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 23,
+      "printed_page": 17,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 24,
+      "printed_page": 18,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 25,
+      "printed_page": 19,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 26,
+      "printed_page": 20,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 27,
+      "printed_page": 21,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 28,
+      "printed_page": 22,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 29,
+      "printed_page": 23,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 30,
+      "printed_page": 24,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 31,
+      "printed_page": 25,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 32,
+      "printed_page": 26,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 33,
+      "printed_page": 27,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 34,
+      "printed_page": 28,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 35,
+      "printed_page": 29,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 36,
+      "printed_page": 30,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 37,
+      "printed_page": 31,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 38,
+      "printed_page": 32,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 39,
+      "printed_page": 33,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 40,
+      "printed_page": 34,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 41,
+      "printed_page": 35,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 42,
+      "printed_page": 36,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 43,
+      "printed_page": 37,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 44,
+      "printed_page": 38,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 45,
+      "printed_page": 39,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 46,
+      "printed_page": 40,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 47,
+      "printed_page": 41,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 48,
+      "printed_page": 42,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 49,
+      "printed_page": 43,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 50,
+      "printed_page": 44,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 51,
+      "printed_page": 45,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 52,
+      "printed_page": 46,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 53,
+      "printed_page": 47,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 54,
+      "printed_page": 48,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 55,
+      "printed_page": 49,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 56,
+      "printed_page": 50,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 57,
+      "printed_page": 51,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 58,
+      "printed_page": 52,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 59,
+      "printed_page": 53,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 60,
+      "printed_page": 54,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 61,
+      "printed_page": 55,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 62,
+      "printed_page": 56,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 63,
+      "printed_page": 57,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 64,
+      "printed_page": 58,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    },
+    {
+      "pdf_page": 65,
+      "printed_page": 59,
+      "ocr_text": null,
+      "text_status": "scanned_page_not_OCR_extracted"
+    }
+  ]
+}
